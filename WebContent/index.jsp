@@ -1,6 +1,8 @@
+<!-- このファイルが通常のHTMLファイルではなく、JSPであることを示している -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!-- インデント自動でされないため自分でインデント、しないのが正解？ -->
+<!-- ブラウザにHTML5標準に従って文書を解釈するよう指示 -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +20,6 @@
             <input type="password" name="password">
             <input type="submit" value="送信">
         </form>
-
         POST通信
         <form method="post" action="TestServlet">
             <input type="text" name="username">

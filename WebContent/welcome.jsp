@@ -1,5 +1,7 @@
+<!-- このファイルが通常のHTMLファイルではなく、JSPであることを示している -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
+<!-- ブラウザにHTML5標準に従って文書を解釈するよう指示 -->
 <!DOCTYPE html>
 <html>
     <head>
