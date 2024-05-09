@@ -1,71 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-id="WebApp_ID" version="3.1">
-
-<!-- web.xmlはアクセスされたURLに対して呼び出すクラス,エラー時に実行する処理の指定をするファイルなどの設定をする -->
-<!-- 上記はXML宣言と、決まり文？ -->
-<!-- web-appは本体の記述 -->
-<!-- 省略可能なdisplay-name要素では、Webアプリケーションの表示名(GUIツールで表示できる短い名前)を指定 -->
-    <display-name>HelloServlet</display-name>
-
-    <!-- 省略可能なwelcome-file-list要素では、welcome-file要素の順序付きリストを指定します -->
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
-
-    <!-- 動かしたいサーブレット名を記述 -->
-    <servlet>
-        <servlet-name>Hello</servlet-name>
-        <servlet-class>HelloServlet</servlet-class>
-    </servlet>
-
-    <!-- 可読性 と サーブレットの紐づけの親和性が高まるようなその機能に合った意味を持つ文言を記述 -->
-    <!-- ブラウザのURL（アドレス）などで指定した場合、先ほどの動かしたいサーブレットが動作する仕組み -->
-    <servlet-mapping>
-        <servlet-name>Hello</servlet-name>
-        <url-pattern>/HelloServlet/HelloServlet</url-pattern>
-    </servlet-mapping>
-
-    <!-- 動かしたいサーブレット名を記述 -->
-    <servlet>
-        <servlet-name>Welcome</servlet-name>
-        <servlet-class>WelcomeServlet</servlet-class>
-    </servlet>
-
-    <!-- 可読性 と サーブレットの紐づけの親和性が高まるようなその機能に合った意味を持つ文言を記述 -->
-    <!-- ブラウザのURL（アドレス）などで指定した場合、先ほどの動かしたいサーブレットが動作する仕組み -->
-    <servlet-mapping>
-        <servlet-name>Welcome</servlet-name>
-        <url-pattern>/HelloServlet/WelcomeServlet</url-pattern>
-    </servlet-mapping>
-
-    <!-- 動かしたいサーブレット名を記述 -->
-    <servlet>
-        <servlet-name>Inquiry</servlet-name>
-        <servlet-class>InquiryServlet</servlet-class>
-    </servlet>
-
-    <!-- 可読性 と サーブレットの紐づけの親和性が高まるようなその機能に合った意味を持つ文言を記述 -->
-    <!-- ブラウザのURL（アドレス）などで指定した場合、先ほどの動かしたいサーブレットが動作する仕組み -->
-    <servlet-mapping>
-        <servlet-name>Inquiry</servlet-name>
-        <url-pattern>/HelloServlet/InquiryServlet</url-pattern>
-    </servlet-mapping>
-
-    <!-- 動かしたいサーブレット名を記述 -->
-    <servlet>
-        <servlet-name>Test</servlet-name>
-        <servlet-class>TestServlet</servlet-class>
-    </servlet>
-
-    <!-- 可読性 と サーブレットの紐づけの親和性が高まるようなその機能に合った意味を持つ文言を記述 -->
-    <!-- ブラウザのURL（アドレス）などで指定した場合、先ほどの動かしたいサーブレットが動作する仕組み -->
-    <servlet-mapping>
-        <servlet-name>Test</servlet-name>
-        <url-pattern>/HelloServlet/TestServlet</url-pattern>
-    </servlet-mapping>
-
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>HelloServlet</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>Hello</servlet-name>
+    <servlet-class>HelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Hello</servlet-name>
+    <url-pattern>/HelloServlet/HelloServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Welcome</servlet-name>
+    <servlet-class>WelcomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Welcome</servlet-name>
+    <url-pattern>/HelloServlet/WelcomeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Inquiry</servlet-name>
+    <servlet-class>InquiryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inquiry</servlet-name>
+    <url-pattern>/HelloServlet/InquiryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Test</servlet-name>
+    <servlet-class>TestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Test</servlet-name>
+    <url-pattern>/HelloServlet/TestServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
