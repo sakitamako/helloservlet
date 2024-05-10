@@ -1,11 +1,12 @@
 <!-- このファイルが通常のHTMLファイルではなく、JSPであることを示している -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<!-- インデント自動でされないため自分でインデント、しないのが正解？ -->
+<!-- インデント自動でされないため自分でインデント -->
 <!-- ブラウザにHTML5標準に従って文書を解釈するよう指示 -->
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- 指示の種類＝文書の文字エンコーディング（旧式）、指示の内容＝UTF-8 を指定 -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>お問い合わせフォーム</title>
     </head>
