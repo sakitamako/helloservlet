@@ -1,52 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 id="WebApp_ID" version="3.1">
 
+<!-- web.xml=ブラウザに入力したURLと実行したいjavaを紐づける設定ファイル -->
+<!-- web.xmlはアクセスされたURLに対して呼び出すクラス,エラー時に実行する処理の指定をするファイルなどの設定をする -->
+<!-- 省略可能なdisplay-name要素では、Webアプリケーションの表示名(GUIツールで表示できる短い名前)を指定 -->
   <display-name>HelloServlet</display-name>
+
+  <!-- <welcome-file-list>は複数の<welcome-file>要素を記述することができます -->
   <welcome-file-list>
+  <!-- 複数のウェルカムページが指定された場合には、
+記述順――つまり、index.jsp、index.htmlの順にページを検索し、
+最初に見つかったページがウェルカムページとして表示されます。 -->
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+
   <servlet>
+    <!-- 名前の登録 -->
     <servlet-name>Hello</servlet-name>
+    <!-- クラス（プログラム）の登録 -->
     <servlet-class>HelloServlet</servlet-class>
   </servlet>
+
+  <!-- マッピング（割り当て） -->
   <servlet-mapping>
+    <!-- 名前に対して -->
     <servlet-name>Hello</servlet-name>
+    <!-- /HelloServlet/HelloServletという名前のURL -->
     <url-pattern>/HelloServlet/HelloServlet</url-pattern>
   </servlet-mapping>
+
   <servlet>
+    <!-- 名前の登録 -->
     <servlet-name>Welcome</servlet-name>
+    <!-- クラス（プログラム）の登録 -->
     <servlet-class>WelcomeServlet</servlet-class>
   </servlet>
+
+  <!-- マッピング（割り当て） -->
   <servlet-mapping>
+    <!-- 名前に対して -->
     <servlet-name>Welcome</servlet-name>
+    <!-- /HelloServlet/WelcomeServletという名前のURL -->
     <url-pattern>/HelloServlet/WelcomeServlet</url-pattern>
   </servlet-mapping>
+
   <servlet>
+    <!-- 名前の登録 -->
     <servlet-name>Inquiry</servlet-name>
+    <!-- クラス（プログラム）の登録 -->
     <servlet-class>InquiryServlet</servlet-class>
   </servlet>
+
+  <!-- マッピング（割り当て） -->
   <servlet-mapping>
+    <!-- 名前に対して -->
     <servlet-name>Inquiry</servlet-name>
+    <!-- /HelloServlet/InquiryServletという名前のURL -->
     <url-pattern>/HelloServlet/InquiryServlet</url-pattern>
   </servlet-mapping>
+
   <servlet>
+    <!-- 名前の登録 -->
     <servlet-name>Test</servlet-name>
+    <!-- クラス（プログラム）の登録 -->
     <servlet-class>TestServlet</servlet-class>
   </servlet>
+
+  <!-- マッピング（割り当て） -->
   <servlet-mapping>
+    <!-- 名前に対して -->
     <servlet-name>Test</servlet-name>
+    <!-- /HelloServlet/TestServleという名前のURL -->
     <url-pattern>/HelloServlet/TestServlet</url-pattern>
   </servlet-mapping>
+
   <servlet>
+    <!-- 名前の登録 -->
     <servlet-name>MySQL</servlet-name>
+    <!-- クラス（プログラム）の登録 -->
     <servlet-class>MySQLServlet</servlet-class>
   </servlet>
+
+  <!-- マッピング（割り当て） -->
   <servlet-mapping>
     <servlet-name>MySQL</servlet-name>
+    <!-- /HelloServlet/MySQLServletという名前のURL -->
     <url-pattern>/HelloServlet/MySQLServlet</url-pattern>
   </servlet-mapping>
+
 </web-app>
