@@ -11,20 +11,21 @@
         <title>お問い合わせフォーム</title>
     </head>
     <body>
+        <!-- ブラウザ上の問い合わせボタンを押した先の入力項目が表示される -->
         <form method="post" action="InquiryServlet">
-        名前:<br>
-        <input type="text" name="name">
-        <br>
-        お問合せの種類:<br>
-        <select name="qtype">
-            <option value="company">会社について</option>
-            <option value="product">製品について</option>
-            <option value="support">アフターサポートについて</option>
-        </select>
-        <br>お問合せ<br>
-        <textarea name="body"></textarea>
-        <br>
-        <input type="submit" value="登録">
+            名前:<br>
+            <input type="text" name="name">
+            <br>
+            お問合せの種類:<br>
+            <select name="qtype">
+                <option value="company">会社について</option>
+                <option value="product">製品について</option>
+                <option value="support">アフターサポートについて</option>
+            </select>
+            <br>お問合せ<br>
+            <textarea name="body"></textarea>
+            <br>
+            <input type="submit" value="登録">
         </form>
     </body>
 </html>
