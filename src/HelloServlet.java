@@ -29,6 +29,8 @@ public class HelloServlet extends HttpServlet {
 		//取り出したストリームへ文字を書き出すと、それがクライアントに送られ、画面に表示される。
 		PrintWriter out = response.getWriter();
 
+		//ブラウザで表示した後［ページのソースを表示］をクリックすると下記が表示される
+		//ブラウザではこのように表示するよってこと
 		out.println("<HTML>");
 		out.println("<BODY>");
 		out.println("<H3>Hello Servlet!!!!!</H3>");
