@@ -42,52 +42,116 @@ public class MySQLServlet extends HttpServlet {
 		//実際のコード=PrintWriter out = response.getWriter();
 		PrintWriter out = response.getWriter();
 
+		//<input type="button" value="MySQLServlet" onClick="location.href='MySQLServlet'">を入力することで
+		//MySQLServletボタンが表示される、それをクリックすると下記が表示される
+		//ブラウザで表示した後［ページのソースを表示］をクリックすると下記が表示される
+		//ブラウザではデータベーステストと表示される
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>データベーステスト</title>");
 		out.println("</head>");
 		out.println("<body>");
 
+		//接続オブジェクトの定義
 		Connection conn = null;
+
+		//接続先情報を表す文字列の定義
 		String url = "jdbc:mysql://localhost/testdb";
+
+		//接続時に使用するユーザー名の定義
 		String user = "root";
+
+		//接続時に使用するパスワードの定義
 		String password = "root";
 
+		//try.catchはjavaの例外処理のための構文
 		try {
+
+			//tryの中にはエラーが発生しそうな処理を書く
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+			//ドライバーがロードされ使えるような状態にしている、覚える。
 			conn = DriverManager.getConnection(url, user, password);
 
+			//データベースの接続後に、sql文をデータベースに直接渡すのではなく、
+			//sqlコンテナの役割を果たすオブジェクトに渡すためのStatement オブジェクトを作成する。
+			//Statementオブジェクトには３種類あり、目的による使い分ける。
+			//通常のsql文を処理する場合には、Statementオブジェクトを用いる。
+			//また、sql文のプリコンパイル用にはPreparedStatementを、
+			//ストアドプロシージャ用にはCallableStatementを利用する。
+			//Statementオブジェクトは、直接newする必要なく、
+			//接続を確立した Connectionオブジェクトから目的にあったStatementオブジェクトを 得て利用する。
+			//stmt＝PDOStatementオブジェクトを表している
 			Statement stmt = conn.createStatement();
+
+			//SELECT データを抽出する
+			//＊ テーブルに含まれる項目全て
+			//FROM 〇〇 〇〇という名前のテーブルからデータを選択する
+			//test_tableに入っているデータがsqlに代入される
 			String sql = "SELECT * FROM test_table";
+
+			//executeQuery();は実行メソッドで、必ず ResultSetが返ってくる
+			//ResultSetは問い合わせにより返されるデータの行（レコード） をあらわす
 			ResultSet rs = stmt.executeQuery(sql);
 
+			//while(rs.next())はカーソルを1行ずつ実行していきデータがなくなったら実行を終了する
 			while (rs.next()) {
 				int userId = rs.getInt("user_id");
 				String userName = rs.getString("user_name");
 				String userPassword = rs.getString("password");
 
+				//ブラウザで表示した後［ページのソースを表示］をクリックすると下記が表示される
+				//ブラウザでは"ユーザーID:〇〇 , ユーザー名:〇〇, パスワード:〇〇と表示される
 				out.println("<p>");
-				out.println("ユーザーID:" + userId + ", ユーザー名:" + userName + ", パスワード" + userPassword);
+				out.println("ユーザーID:" + userId + ", ユーザー名:" + userName + ", パスワード:" + userPassword);
 				out.println("</p>");
 			}
 
+			//データベースとの接続をクローズ
+			//これをしないとデータベースを接続したまま作業が実行されてしまってメモリに負荷がかかる
 			rs.close();
 			stmt.close();
+
+		//tryの中でエラーが発生した場合、catchが受け取り
 		} catch (ClassNotFoundException e) {
+
+			//例外がスローされる原因となったエラーまたは動作の説明を返します
 			out.println("ClassNotFoundException:" + e.getMessage());
+
+		//tryの中でエラーが発生した場合、catchが受け取り
 		} catch (SQLException e) {
+
+			//例外がスローされる原因となったエラーまたは動作の説明を返します
 			out.println("SQLException:" + e.getMessage());
+
+		//tryの中でエラーが発生した場合、catchが受け取り
 		} catch (Exception e) {
+
+			//例外がスローされる原因となったエラーまたは動作の説明を返します
 			out.println("Exception:" + e.getMessage());
+
+		//最後に実行されるものを指定するための構文
+		//例外が発生しcatchされてもされなくても必ず行われる処理を書くことができる。
 		} finally {
+
+			//try.catchはjavaの例外処理のための構文
 			try {
+
+				//もし接続オブジェクトの値が違ったら（５６行目）
+				//データベースとの接続をクローズ？
 				if (conn != null) {
 					conn.close();
 				}
+
+			//tryの中でエラーが発生した場合、catchが受け取り
 			} catch (SQLException e) {
+
+				//例外がスローされる原因となったエラーまたは動作の説明を返します。
 				out.println("SQLException:" + e.getMessage());
 			}
  		}
+
+		//ブラウザで表示した後［ページのソースを表示］をクリックすると下記が表示される
 		out.println("</body>");
 		out.println("</html>");
 	}
