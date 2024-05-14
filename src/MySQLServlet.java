@@ -71,7 +71,7 @@ public class MySQLServlet extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 
 			//ドライバーがロードされ使えるような状態にしている、覚える。
-			conn = DriverManager.getConnection(url, user, password);
+			conn = DriverManager.getConnection(url, user, password);// error出たら: conn==null, successできたら: conn!=null
 
 			//データベースの接続後に、sql文をデータベースに直接渡すのではなく、
 			//sqlコンテナの役割を果たすオブジェクトに渡すためのStatement オブジェクトを作成する。
@@ -82,7 +82,7 @@ public class MySQLServlet extends HttpServlet {
 			//Statementオブジェクトは、直接newする必要なく、
 			//接続を確立した Connectionオブジェクトから目的にあったStatementオブジェクトを 得て利用する。
 			//stmt＝PDOStatementオブジェクトを表している
-			Statement stmt = conn.createStatement();
+			Statement stmt = conn.createStatement();// アクセス出来たらconn!=null、// error出たら: conn==null
 
 			//SELECT データを抽出する
 			//＊ テーブルに含まれる項目全て
@@ -131,7 +131,7 @@ public class MySQLServlet extends HttpServlet {
 			out.println("Exception:" + e.getMessage());
 
 		//最後に実行されるものを指定するための構文
-		//例外が発生しcatchされてもされなくても必ず行われる処理を書くことができる。
+		//例外が発生しcatchされてもされなくても、共通してやってほしい処理や、やらなければいけない処理を書くところ。
 		} finally {
 
 			//try.catchはjavaの例外処理のための構文
