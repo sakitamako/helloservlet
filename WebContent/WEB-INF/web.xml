@@ -92,4 +92,5 @@ id="WebApp_ID" version="3.1">
         <!-- /HelloServlet/MySQLServletという名前のURL -->
         <url-pattern>/HelloServlet/MySQLServlet</url-pattern>
     </servlet-mapping>
+
 </web-app>

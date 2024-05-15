@@ -10,6 +10,7 @@
         <title>HelloServlet</title>
     </head>
     <body>
+
         <!-- ブラウザ上のHelloServletボタン -->
         <input type="button" value="HelloServlet" onClick="location.href='HelloServlet'">
 
@@ -38,5 +39,6 @@
             <input type="password" name="password">
             <input type="submit" value="送信">
         </form>
+
     </body>
 </html>

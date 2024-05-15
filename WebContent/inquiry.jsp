@@ -11,6 +11,7 @@
         <title>お問い合わせフォーム</title>
     </head>
     <body>
+
         <!-- ブラウザ上の問い合わせボタンを押した先の入力項目が表示される -->
         <form method="post" action="InquiryServlet">
             名前:<br>
@@ -27,5 +28,6 @@
             <br>
             <input type="submit" value="登録">
         </form>
+
     </body>
 </html>
